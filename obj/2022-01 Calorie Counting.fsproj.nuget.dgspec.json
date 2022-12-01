@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/2022-01 Calorie Counting.fsproj": {}
+  },
+  "projects": {
+    "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/2022-01 Calorie Counting.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/2022-01 Calorie Counting.fsproj",
+        "projectName": "2022-01 Calorie Counting",
+        "projectPath": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/2022-01 Calorie Counting.fsproj",
+        "packagesPath": "/Users/chaitanya/.nuget/packages/",
+        "outputPath": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/chaitanya/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.100/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[7.0.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

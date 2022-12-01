@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QMI3k0mItVpUDr1iakat3OG6YKhK/t6hz3cqmAKrvmK2U/ZvlTMVpWpQWbmA1YrVrC3/WjfOnxZxGZRyeGy5rg==",
+  "success": true,
+  "projectFilePath": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-01 Calorie Counting/2022-01 Calorie Counting.fsproj",
+  "expectedPackageFiles": [
+    "/Users/chaitanya/.nuget/packages/fsharp.core/7.0.0/fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
