@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-02 Rock Paper Scissors.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-02 Rock Paper Scissors/bin/Debug/net7.0/2022-02 Rock Paper Scissors.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-02 Rock Paper Scissors.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
