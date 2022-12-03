@@ -12,6 +12,13 @@ let score rockPaperScissor =
 
 type Outcome = Win | Lose | Draw
 
+let OutcomeFromString str =
+    match str with
+    | "X" -> Some Lose
+    | "Y" -> Some Draw
+    | "Z" -> Some Win
+    | _ -> None
+
 let outcomeScore outcome = 
     match outcome with
     | Win -> 6
@@ -28,8 +35,16 @@ let outcome opponent player =
     | (Rock, Paper) -> Win
     | (_, _) -> Draw
 
-let inline (^) (opponent: RockPaperScissors)(player: RockPaperScissors) =
-    outcome opponent player
+let computeObjectToPlayForOutcome opponent outcome =
+    match (outcome, opponent) with
+    | (Win, Rock) -> Paper
+    | (Win, Paper) -> Scissors
+    | (Win, Scissors) -> Rock
+    | (Lose, Rock) -> Scissors
+    | (Lose, Paper) -> Rock
+    | (Lose, Scissors) -> Paper
+    | (Draw, _) -> opponent
+
 
 let playerScore opponent player =
     let itemScore = score player
@@ -58,11 +73,27 @@ let gameScoreFromLine (str: string) =
 
 let strategyTotal: seq<string> -> int = Seq.choose gameScoreFromLine >> Seq.sum
 
+let gameScoreFromLine2 (str: string) =
+    let elems = str.Split(" ")
+    let opponent = RockPaperScissorsFromString elems[0]
+    let outcome = OutcomeFromString elems[1]
+    
+    match (opponent, outcome) with
+        | Some opponent, Some outcome -> 
+            computeObjectToPlayForOutcome opponent outcome 
+            |> playerScore opponent 
+            |> Some
+        | (_, _) -> None
+
+let strategyTotal2: string seq -> int = Seq.choose gameScoreFromLine2 >> Seq.sum
+
 let testData = IO.File.ReadLines "./test"
 let inputData = IO.File.ReadLines "./input"
 
 
 
-let result = strategyTotal inputData
+
+
+let result = strategyTotal2 testData
 
 printfn "%d" result
