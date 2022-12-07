@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-05 Supply Stacks.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-05 Supply Stacks/bin/Debug/net7.0/2022-05 Supply Stacks.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-05 Supply Stacks.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
