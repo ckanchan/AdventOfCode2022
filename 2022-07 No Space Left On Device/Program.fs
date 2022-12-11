@@ -1,16 +1,30 @@
-﻿#if INTERACTIVE
-#r "nuget:FSharp.Text.RegexProvider"
-#endif
-
-open System.IO
-open FSharp.Text.RegexProvider
-open FSharp.Text.RegexExtensions
+﻿open System.IO
+open FileSystem
+open Terminal
 
 let testData = File.ReadLines "./test"
 let inputData = File.ReadLines "./input"
 
-type FileSystem =
-    | File of name: string * size: int
-    | Directory of name: string * contents: FileSystem list
+let dirDepthSorted mappedInput = 
+    Map.values mappedInput
+    |> Array.ofSeq
+    |> Array.groupBy (fun dirInfo -> dirInfo.depth)
+    |> Map.ofArray
 
-type FileMatcher = Regex< @"(?'size'\d+) (?'name'\w+)(?'ext'.\w+)">
+// let (maxDepth, leafDirs) = Map.maxKeyValue dirDepthSorted
+
+// let leafFSDirs =
+//         leafDirs
+//         |> Array.map (fun dirInfo ->
+//             Directory {
+//                 name=dirInfo.name
+//                 contents= List.map File dirInfo.children
+//             }
+//         )
+
+
+
+let dirInfo = terminalOutputToDirectoryInfo  testData
+let maxDepth = maxDepth dirInfo
+let tree = buildFileSystem maxDepth Map.empty dirInfo
+directorySizes List.empty tree

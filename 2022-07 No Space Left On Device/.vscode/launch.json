@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-07 No Space Left On Device.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-07 No Space Left On Device/bin/Debug/net7.0/2022-07 No Space Left On Device.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-07 No Space Left On Device.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
