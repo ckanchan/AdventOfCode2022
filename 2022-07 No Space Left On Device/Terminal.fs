@@ -6,7 +6,7 @@ open FSharp.Text.RegexExtensions
 
 type FileMatcher = Regex< @"(?'size'\d+) (?'name'\w+)(?((?'ext'.\w+)))">
 type DirectoryMatcher = Regex< @"dir (?'dirName'\w+)">
-type UserCommandMatcher = Regex< @"\$ (?'command'\w+)(?( (?'args'\w+|\/)))">
+type UserCommandMatcher = Regex< @"\$ (?'command'\w+)(?( (?'args'\w+|\/|(\.\.))))">
 
 type DirectoryChange = 
     | ParentDirectory
@@ -63,8 +63,12 @@ let terminalOutputToDirectoryInfo output =
         | FS f ->
             match f with 
                 | Directory d -> 
-                    let newDirectory = {name=d.name; depth = currentDir.depth + 1; parent=Some currentDir.name; children=[]}
-                    let newMap = Map.add d.name newDirectory infoMap
+                    let newName = 
+                        match currentDir.name with 
+                            | "/" -> "/" + d.name + "/"
+                            | _ -> currentDir.name + d.name + "/"
+                    let newDirectory = {name=newName; depth = currentDir.depth + 1; parent=Some currentDir.name; children=[]}
+                    let newMap = Map.add newName newDirectory infoMap
                     (newMap, currentDir)
                 | File f ->
                     let updateDirectory = {currentDir with children=f::currentDir.children}
@@ -83,7 +87,8 @@ let terminalOutputToDirectoryInfo output =
                                     let newMap = Map.add "/"  root Map.empty
                                     (newMap, root)
                         | NamedDirectory n ->
-                            let target = Map.find n infoMap
+                            let targetKey = currentDir.name + n + "/"
+                            let target = Map.find targetKey infoMap
                             (infoMap, target)
                         | ParentDirectory ->
                             match currentDir.parent with 

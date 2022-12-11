@@ -23,14 +23,15 @@ let totalSize fileSystemItem =
 
 let rec directorySizes (currentDirList: (string * int) list) (currentItem: FileSystem) =
         match currentItem with 
-            | File f -> [("file", f.size)]
+            | File f -> List.empty 
             | Directory d ->
-                let sizesOfChildren = d.contents |> List.collect (directorySizes currentDirList)
-                let dirSize = 
-                    sizesOfChildren 
-                   //  |> List.where (fun pair -> (fst pair) = "file") 
-                    |> List.map snd 
-                    |> List.sum
-                let subDirectorySizes = sizesOfChildren |> List.where (fun pair -> (fst pair) <> "file")
+                let subDirectorySizes = d.contents |> List.collect (directorySizes currentDirList)
+                let dirSize = totalSize (Directory d)
                 [(d.name, dirSize)] @ subDirectorySizes   @ currentDirList
 
+let countItems fs =
+    let fileCount f = 1
+    let dirCount (dirName, subcounts) = (List.sum subcounts) + 1
+
+    cFileSystem fileCount dirCount fs
+    
