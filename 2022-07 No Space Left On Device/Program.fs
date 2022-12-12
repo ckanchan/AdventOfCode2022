@@ -14,4 +14,16 @@ let result =
     |> List.map snd
     |> List.sum
 
-printf "%d" result
+let diskSize = 70000000
+let usedSpace = totalSize tree
+let remainingFreeSpace = diskSize - usedSpace
+
+let updateSize = 30000000
+let sizeRequired = updateSize - remainingFreeSpace
+
+let directoryToDelete =
+    directorySizes List.empty tree
+    |> List.filter (fun item -> (snd item) >= sizeRequired)
+    |> List.minBy (fun item -> snd item)
+    
+printfn "Delete %s of size %d" (fst directoryToDelete) (snd directoryToDelete)
