@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-08 Treetop Tree House.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-08 Treetop Tree House/bin/Debug/net7.0/2022-08 Treetop Tree House.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-08 Treetop Tree House.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
