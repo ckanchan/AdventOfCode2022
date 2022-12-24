@@ -63,7 +63,30 @@ let getInterestingSignals (cpuStates: CPUState array) =
 
 let test = testData |> Seq.choose cpuInstructionFromString |> cpuStatesFromInstructions
 
-test
-|> getInterestingSignals
-|> Array.sumBy (fun x -> x.signalStrength)
-|> printfn "%d"
+
+type Pixel = Lit | Unlit
+
+let pixelState (cpuState: CPUState) =
+    let xVals = [|-1..1|] |> Array.map (fun i -> i + cpuState.registerX)
+    match Array.contains cpuState.cycle xVals with
+    | true -> Lit
+    | false -> Unlit
+
+let renderPixels (pixels: Pixel array) =
+    let renderPixel p = 
+        match p with 
+        | Lit -> "#"
+        | Unlit -> "."
+    
+    pixels
+    |> Array.map renderPixel
+    |> Array.chunkBySize 40
+    |> Array.map (String.concat "")
+
+let result =
+    inputData
+    |> Seq.choose cpuInstructionFromString
+    |> cpuStatesFromInstructions
+    |> Array.map (fun x -> {x with cycle=(x.cycle % 40)})
+    |> Array.map pixelState
+    |> renderPixels
