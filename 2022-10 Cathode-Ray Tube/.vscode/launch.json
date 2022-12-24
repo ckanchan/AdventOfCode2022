@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-10 Cathode-Ray Tube.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-10 Cathode-Ray Tube/bin/Debug/net7.0/2022-10 Cathode-Ray Tube.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-10 Cathode-Ray Tube.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
