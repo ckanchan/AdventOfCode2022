@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "2022-11 Monkey in the Middle.fsproj",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "/Users/chaitanya/Developer/Learning/AdventOfCode/2022/2022-11 Monkey in the Middle/bin/Debug/net7.0/2022-11 Monkey in the Middle.dll",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "preLaunchTask": "Build: 2022-11 Monkey in the Middle.fsproj",
+            "presentation": {
+                "group": "ionide",
+                "hidden": false
+            }
+        }
+    ]
+}
